@@ -1,0 +1,458 @@
+@import url('https://fonts.googleapis.com/css2?family=Edu+QLD+Hand:wght@400..700&display=swap');
+:root{
+ --primary-color:#6ea0e5;
+ --secondary-color:#ff0000;
+ --color-black:#795548;
+ --color-white:#9e9e9e;
+ --color-gray:#d3d3d3;
+ --color-yellow:#fffde7;
+}
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+h1,
+h2,
+h4,
+h5,
+h6 {
+  font-family:"Edu QLD Hand";
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 18px;
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  color: var(--color-white);
+}
+
+nav,section{
+	padding:16px 150px;
+  margin-bottom: 40px;
+}
+nav{
+	display:flex;
+	justify-content: space-between;
+	padding:14px 30px;
+	background-color: var(--primary-color);
+	size:150px;
+}
+nav h3{
+	color:var(--color-yellow);
+	font-size:36px;
+}
+nav ul{
+	display:flex;
+	list-style:none;
+	gap:18px;
+}
+nav ul a{
+	color:var(--color-yellow);
+	text-decoration: none;
+	font-size: 20px;
+}
+.hamburger img {
+  width: 80px;
+  height: 50px;
+  object-fit: contain;
+}
+#hero{
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding:16px;
+    min-height: 80vh;
+}
+.hero-image{
+	height: 250px;
+    width: 250px;
+    object-fit: cover;
+    border:5px solid var(--color-black);
+    border-radius: 50%;
+}
+.hero-text {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.hero-text h2{
+	font-size:30px;
+	margin-bottom:5px;
+	color:var(--secondary-color);
+}
+.hero-text span{
+	font-size:30px;
+	color:var(--primary-color);
+}
+p.hero-desc{
+	font-family:"Edu QLD Hand";
+	max-width:400;
+	color:var(--color-black);
+}
+button,
+.btn {
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 7px;
+  width: fit-content;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#hero button{
+	background-color:var(--secondary-color);
+	color:var(--color-gray);
+	font-size:20px;
+}
+#hero button:hover{
+	color:green;
+}
+footer{
+	color:var(--primary-color);
+	font-size: 38px;
+	display: flex;
+	flex-direction: column;
+	max-width: 100%;
+	align-items: center;
+	height:fit-content;
+}
+body{
+	color:var(--color-white);
+	background-color:lightgray;
+}
+
+/* project section start*/
+#project{
+	align-items: flex-start;
+	align-text:left;
+	display:flex;
+	justify-content: space-around;
+	min-height: 70vh;
+	padding:15px;
+}
+.title{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom:40px;
+}
+p.sub-title{
+	font-size:20px;
+	font-weight: 400;
+	font-family: Edu QLD Hand;
+	color:var(--color-black);
+	opacity: 0.9;
+	max-width: 550px;
+}
+.title h2{
+	font-size: 30px;
+	color:var(--secondary-color);
+}
+.project-card {
+  border: 2px solid var(--color-accent);
+  border-radius: 6px;
+  overflow: hidden;
+}
+.project-image {
+  overflow: hidden;
+  width: 100%;
+}
+.project-card img{
+	width: 100%;
+  object-fit: cover;
+  height: 300px;
+  transition: 0.3s all ease-in-out;
+}
+.project-card .card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 4px 14px;
+}
+
+p.card-description {
+  font-size: 18px;
+  font-weight: 300;
+  font-family:"Edu QLD Hand";
+  margin:10px;
+  max-width:200;
+  color:var(--color-black);
+}
+
+.project-card a {
+  text-decoration: none;
+  font-size: 18px;
+  background-color: var(--secondary-color);
+  width: fit-content;
+  padding: 3px;
+  font-family: "Chivo", sans-serif;
+  border-radius: 2px;
+  color: var(--color-yellow);
+}
+
+.project-list{
+	display: grid;
+	grid-template-columns:repeat(3, 1fr);
+	gap:40px;
+}
+.project-card:hover img {
+  transform: scale(1.1);
+}
+h4.card-title{
+	color:var(--primary-color);
+}
+/*About section*/
+#about{
+	display: flex;
+	min-height: 70vh;
+}
+.details h4{
+	font-size: 30px;
+	color:var(--secondary-color);
+}
+.details p{
+	font-family:"Edu QLD Hand";
+	font-size:18px;
+	max-width: 400;
+	color:var(--color-black);
+	margin:10px;
+	display: flex;
+	flex-direction: column;
+	gap:15px;
+}
+.social-links a{
+	font-size: 20px;
+	color:var(--primary-color);
+	margin:20px;
+	text-decoration: none;
+	text-align:left;
+}
+section#about {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: red; */
+  /*padding-right:100px;*/
+}
+
+#about .details {
+  /* background-color: green; */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 600px;
+}
+
+#about .about-img {
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+}
+
+#about .social-links {
+  display: flex;
+  gap: 8px;
+}
+
+#about .social-links img {
+  width: 36px;
+}
+
+/* About section End */
+
+/* Contact Section Start */
+section#contact form {
+  width: fit-content;
+  margin-inline: auto;
+}
+
+section#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color:var(--primary-color);
+}
+
+section#contact form .inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+#contact p.sub-title{
+  max-width: 500;
+}
+section#contact label {
+  font-size: 20px;
+}
+
+input,
+textarea {
+  border:3px solid var(--color-black);
+  background-color: transparent;
+  outline: none;
+  font-size: 16px;
+  padding: 8px 16px;
+  width: 300px;
+  color: var(--color-white);
+}
+
+input::placeholder {
+  color: var(--color-black);
+}
+
+textarea {
+  resize: none;
+  color:var(--color-black);
+}
+
+section#contact form button {
+  font-size: 16px;
+  color:var(--color-gray);
+  background-color:var(--secondary-color);
+}
+
+/* Contact Section End */
+
+/* Footer Section Start */
+section#footer {
+  margin-bottom: 10px;
+}
+/* Footer Section End */
+
+/* Media Queries */
+@media (max-width: 1280px) {
+  nav,
+  section {
+    padding-inline: 24px;
+  }
+
+  h2 {
+    font-size: 28px;
+  }
+  p {
+    font-size: 16px;
+  }
+
+  .hero-desc {
+    max-width: 400px;
+  }
+
+  .hero-image {
+    height: 300px;
+    width: 300px;
+  }
+
+  #hero {
+    min-height: 60vh;
+  }
+
+  .project-list {
+    grid-template-columns: repeat(2, 300px);
+    place-content: center;
+  }
+}
+/* Sidebar */
+.sidebar {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 300px;
+  background-color: var(--primary-color);
+  padding: 24px 48px;
+  z-index: 999;
+  display: none;
+}
+
+.sidebar ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  list-style: none;
+  color:var(--secondary-color);
+  font-size: 20px;
+}
+.sidebar ul a{
+  color:var(--color-yellow);
+  font-size: 30px;
+}
+
+.sidebar-menu {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.sidebar .close-btn {
+  position: absolute;
+  top: 5px;
+  margin:60px;
+  right: -165px;
+  width: 30px;
+}
+@media (min-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+/* Hamburger styling */
+.hamburger {
+  cursor: pointer;
+  z-index: 1100; /* above sidebar */
+  position: fixed;
+  top: 8px;
+  right: 20px;
+}
+.close-btn {
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin:20px;
+}
+
+#contact button:hover{
+  color:yellow;
+}
+html{
+  scroll-behavior: smooth;
+}
+@media (max-width: 480px) {
+  .project-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .hamburger {
+    display: block!important;
+    background-color: var(--secondary-color);
+  }
+
+  nav ul {
+    display: none;
+  }
+}
+
+.active {
+  display: flex;
+}
