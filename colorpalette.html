@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Palette Generator</title>
+    <style>
+        /* === CSS Styles === */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h3 {
+            color: #2c3e50;
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        p {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+
+        .palette-container {
+            display: flex;
+            height: 180px;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .color-box {
+            flex: 1;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .color-box:hover {
+            flex: 1.2;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .color-box::after {
+            content: attr(data-hex);
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: white;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+            font-size: 0.9rem;
+            font-weight: bold;
+            padding: 3px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+        }
+
+        .generate-btn {
+            background: #4a6fa5;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .generate-btn:hover {
+            background: #3a5a8f;
+        }
+
+        .small-text {
+            font-size: 0.8rem;
+            color: #95a5a6;
+            text-align: center;
+            margin-top: 0.8rem;
+        }
+
+        /* Animation for color boxes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .color-box {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- === HTML Markup === -->
+    <div class="project-card">
+        <h3>Color Palette Generator</h3>
+        <p>Click the button to generate beautiful color schemes. Click any color to copy its HEX code.</p>
+        
+        <div class="palette-container" id="palette">
+            <!-- Color boxes will be generated here -->
+        </div>
+        
+        <button class="generate-btn" id="generateBtn">Generate New Palette</button>
+        <p class="small-text">Tip: Click any color to copy its HEX code</p>
+    </div>
+
+    <!-- === JavaScript === -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generateBtn');
+            const palette = document.getElementById('palette');
+            
+            // Generate first palette on load
+            generatePalette();
+            
+            // Generate new palette on button click
+            generateBtn.addEventListener('click', generatePalette);
+            
+            function generatePalette() {
+                palette.innerHTML = '';
+                
+                for (let i = 0; i < 5; i++) {
+                    const color = getRandomColor();
+                    const colorBox = document.createElement('div');
+                    colorBox.className = 'color-box';
+                    colorBox.style.background = color;
+                    colorBox.setAttribute('data-hex', color);
+                    
+                    // Add click to copy functionality
+                    colorBox.addEventListener('click', function() {
+                        copyToClipboard(color);
+                        // Visual feedback
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 200);
+                    });
+                    
+                    palette.appendChild(colorBox);
+                }
+            }
+            
+            function getRandomColor() {
+                // Generate vibrant colors (not too dark/light)
+                const hue = Math.floor(Math.random() * 360);
+                const saturation = 70 + Math.floor(Math.random() * 30);
+                const lightness = 40 + Math.floor(Math.random() * 30);
+                return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+            }
+            
+            function copyToClipboard(text) {
+                navigator.clipboard.writeText(text).then(() => {
+                    // Optional: Show a small notification
+                    const notification = document.createElement('div');
+                    notification.textContent = `Copied: ${text}`;
+                    notification.style.position = 'fixed';
+                    notification.style.bottom = '20px';
+                    notification.style.left = '50%';
+                    notification.style.transform = 'translateX(-50%)';
+                    notification.style.background = 'rgba(0,0,0,0.7)';
+                    notification.style.color = 'white';
+                    notification.style.padding = '8px 16px';
+                    notification.style.borderRadius = '4px';
+                    notification.style.zIndex = '1000';
+                    document.body.appendChild(notification);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 1500);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
